@@ -17,7 +17,7 @@
           <span>Password</span>
           <input v-model="password" type="password" required />
         </label>
-        <button type="submit" class="btn-primary" :disabled="auth.loading">
+        <button type="submit" class="btn btn-primary" :disabled="auth.loading">
           {{ auth.loading ? "Creating..." : "Create Account" }}
         </button>
       </form>

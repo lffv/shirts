@@ -1,17 +1,19 @@
 import { ref, onMounted, watch } from "vue";
 
-export type Theme = "default" | "metal";
+export type Theme = "blackMetal" | "deathMetal";
 
-const currentTheme = ref<Theme>("default");
+const currentTheme = ref<Theme>("blackMetal");
 
 export const useTheme = () => {
   // Load theme from localStorage on mount
   onMounted(() => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
-    if (savedTheme) {
-      currentTheme.value = savedTheme;
-      applyTheme(savedTheme);
-    }
+    const initial =
+      savedTheme === "blackMetal" || savedTheme === "deathMetal"
+        ? savedTheme
+        : "blackMetal";
+    currentTheme.value = initial;
+    applyTheme(initial);
   });
 
   // Watch for theme changes
@@ -22,16 +24,20 @@ export const useTheme = () => {
 
   const applyTheme = (theme: Theme) => {
     const html = document.documentElement;
+    html.classList.remove("black-metal-theme", "death-metal-theme");
 
-    if (theme === "metal") {
-      html.classList.add("metal-theme");
-    } else {
-      html.classList.remove("metal-theme");
+    if (theme === "blackMetal") {
+      html.classList.add("black-metal-theme");
+    }
+
+    if (theme === "deathMetal") {
+      html.classList.add("death-metal-theme");
     }
   };
 
   const toggleTheme = () => {
-    currentTheme.value = currentTheme.value === "default" ? "metal" : "default";
+    currentTheme.value =
+      currentTheme.value === "blackMetal" ? "deathMetal" : "blackMetal";
   };
 
   const setTheme = (theme: Theme) => {

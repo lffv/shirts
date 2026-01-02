@@ -3,26 +3,57 @@
 @tailwind utilities;
 
 :root {
-  /* Default Theme (Modern Blue) */
-  --primary: #3b82f6;
-  --secondary: #1f2937;
-  --bg-primary: #f9fafb;
-  --bg-secondary: #ffffff;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --border-color: #e5e7eb;
+  /* Base fallbacks before theme selection */
+  --primary: #a41c35;
+  --secondary: #0d0d10;
+  --bg-primary: #050505;
+  --bg-secondary: #0f0f14;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --border-color: #1f2937;
+  --metal-accent: #9ca3af;
+  --hero-accent: #9f1239;
+  --hero-accent-strong: #f43f5e;
+  --hero-glow: rgba(159, 18, 57, 0.35);
+  --hero-bg-top: #07070a;
+  --hero-bg-mid: #0b0b0f;
+  --hero-bg-bottom: #050505;
 }
 
-/* Metal Theme */
-html.metal-theme {
-  --primary: #dc2626;
-  --secondary: #0f0f0f;
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --text-primary: #e5e5e5;
-  --text-secondary: #a0a0a0;
-  --border-color: #333333;
-  --metal-accent: #888888;
+/* Black Metal Theme — icy, monochrome */
+html.black-metal-theme {
+  --primary: #e5e7eb;
+  --secondary: #0b0c0f;
+  --bg-primary: #030305;
+  --bg-secondary: #0a0b0f;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --border-color: #1f2937;
+  --metal-accent: #9ca3af;
+  --hero-accent: #d1d5db;
+  --hero-accent-strong: #e5e7eb;
+  --hero-glow: rgba(255, 255, 255, 0.22);
+  --hero-bg-top: #06070a;
+  --hero-bg-mid: #0a0b10;
+  --hero-bg-bottom: #020203;
+}
+
+/* Death Metal Theme — blood & bone */
+html.death-metal-theme {
+  --primary: #b91c1c;
+  --secondary: #120000;
+  --bg-primary: #080101;
+  --bg-secondary: #0f0404;
+  --text-primary: #f5f5f4;
+  --text-secondary: #d6d3d1;
+  --border-color: #261010;
+  --metal-accent: #9f1239;
+  --hero-accent: #9f1239;
+  --hero-accent-strong: #f43f5e;
+  --hero-glow: rgba(244, 63, 94, 0.35);
+  --hero-bg-top: #0f0003;
+  --hero-bg-mid: #120104;
+  --hero-bg-bottom: #060002;
 }
 
 * {
@@ -47,16 +78,49 @@ body {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .btn-primary {
-  @apply hover:brightness-110 text-white px-4 py-2 rounded-lg transition-all duration-200;
   background-color: var(--primary);
   color: white;
 }
 
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
 .btn-secondary {
-  @apply px-4 py-2 rounded-lg transition-colors duration-200;
-  background-color: var(--border-color);
+  background-color: var(--bg-secondary);
   color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--border-color);
 }
 
 .card {

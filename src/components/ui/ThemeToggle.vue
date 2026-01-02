@@ -1,78 +1,100 @@
 <template>
-  <button
-    @click="toggleTheme"
-    class="theme-toggle"
-    :title="`Switch to ${
-      currentTheme === 'default' ? 'Metal' : 'Default'
-    } Theme`"
-    :aria-label="`Switch to ${
-      currentTheme === 'default' ? 'Metal' : 'Default'
-    } Theme`"
-  >
-    <svg
-      v-if="currentTheme === 'default'"
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
+  <div class="theme-toggle" role="group" aria-label="Theme switcher">
+    <button
+      v-for="option in themeOptions"
+      :key="option.value"
+      :aria-pressed="currentTheme === option.value"
+      :class="[
+        'theme-toggle-button',
+        { active: currentTheme === option.value },
+      ]"
+      :title="option.label"
+      @click="setTheme(option.value)"
     >
-      <circle cx="12" cy="12" r="5" />
-      <line x1="12" y1="1" x2="12" y2="3" />
-      <line x1="12" y1="21" x2="12" y2="23" />
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-      <line x1="1" y1="12" x2="3" y2="12" />
-      <line x1="21" y1="12" x2="23" y2="12" />
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-    </svg>
-    <svg
-      v-else
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-    >
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-    </svg>
-  </button>
+      <span class="theme-icon" aria-hidden="true">{{ option.icon }}</span>
+      <span class="theme-label">{{ option.shortLabel }}</span>
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { useTheme } from "@/composables/useTheme";
+import { useTheme, type Theme } from "@/composables/useTheme";
 
-const { currentTheme, toggleTheme } = useTheme();
+const { currentTheme, setTheme } = useTheme();
+
+const themeOptions: Array<{
+  value: Theme;
+  label: string;
+  shortLabel: string;
+  icon: string;
+}> = [
+  {
+    value: "blackMetal",
+    label: "Black Metal Theme",
+    shortLabel: "Black",
+    icon: "⛧",
+  },
+  {
+    value: "deathMetal",
+    label: "Death Metal Theme",
+    shortLabel: "Death",
+    icon: "☠",
+  },
+];
 </script>
 
 <style scoped>
 .theme-toggle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: var(--text-primary);
-  transition: color 0.3s ease, transform 0.2s ease;
-  border-radius: 0.5rem;
+  gap: 0.35rem;
+  padding: 0.25rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
 }
 
-.theme-toggle:hover {
-  color: var(--primary);
-  transform: scale(1.1);
+.theme-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.7rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.theme-toggle-button.active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 0 0 1px var(--border-color), 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.theme-toggle-button:not(.active):hover {
+  color: var(--text-primary);
   background: var(--border-color);
 }
 
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
+.theme-icon {
+  font-size: 1rem;
+}
+
+.theme-label {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .theme-label {
+    display: none;
+  }
+
+  .theme-toggle-button {
+    padding: 0.45rem;
+  }
 }
 </style>

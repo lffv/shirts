@@ -138,7 +138,7 @@
           <!-- Add to Cart -->
           <div class="product-actions">
             <button
-              class="btn-add-to-cart"
+              class="btn btn-primary btn-add-to-cart"
               @click="addToCart"
               :disabled="product.stock === 0"
             >
@@ -159,7 +159,10 @@
               </svg>
               Add to Cart
             </button>
-            <button class="btn-wishlist" @click="toggleFavorite(product.id)">
+            <button
+              class="btn btn-secondary btn-wishlist"
+              @click="toggleFavorite(product.id)"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

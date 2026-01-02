@@ -44,8 +44,8 @@ const notifications = computed(() => notificationStore.notifications);
 
 // Initialize theme from localStorage on app load
 onMounted(() => {
-  const savedTheme = localStorage.getItem("theme") || "default";
-  setTheme(savedTheme as "default" | "metal");
+  const savedTheme = localStorage.getItem("theme") || "blackMetal";
+  setTheme(savedTheme as "blackMetal" | "deathMetal");
 });
 </script>
 

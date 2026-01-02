@@ -253,14 +253,14 @@
       <button
         v-if="currentStep > 0"
         @click="previousStep"
-        class="btn-secondary"
+        class="btn btn-secondary"
       >
         Back
       </button>
       <button
         v-if="currentStep < steps.length - 1"
         @click="nextStep"
-        class="btn-primary"
+        class="btn btn-primary"
         :disabled="!isStepValid"
       >
         Continue
@@ -268,7 +268,7 @@
       <button
         v-if="currentStep === steps.length - 1"
         @click="submitOrder"
-        class="btn-primary"
+        class="btn btn-primary"
         :disabled="!isStepValid || isSubmitting"
         :class="{ 'opacity-50 cursor-not-allowed': isSubmitting }"
       >

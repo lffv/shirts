@@ -134,13 +134,13 @@
         <!-- Checkout Button -->
         <router-link
           to="/checkout"
-          class="cart-checkout-btn"
+          class="btn btn-primary cart-checkout-btn"
           @click="closeCart"
         >
           Proceed to Checkout
         </router-link>
 
-        <button class="cart-continue-btn" @click="closeCart">
+        <button class="btn btn-secondary cart-continue-btn" @click="closeCart">
           Continue Shopping
         </button>
       </div>

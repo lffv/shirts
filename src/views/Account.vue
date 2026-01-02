@@ -8,7 +8,7 @@
           Manage your profile, orders, payment methods, and preferences.
         </p>
       </div>
-      <button class="btn-secondary" @click="onLogout">Sign out</button>
+      <button class="btn btn-secondary" @click="onLogout">Sign out</button>
     </header>
 
     <section class="account-grid">
@@ -30,7 +30,11 @@
             <span>Phone</span>
             <input v-model="profileForm.phone" type="tel" />
           </label>
-          <button class="btn-primary" type="submit" :disabled="auth.loading">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            :disabled="auth.loading"
+          >
             {{ auth.loading ? "Saving..." : "Save Profile" }}
           </button>
         </form>
@@ -115,7 +119,11 @@
             <input type="checkbox" v-model="settingsForm.marketing" />
             <span>Send me updates and offers</span>
           </label>
-          <button class="btn-primary" type="submit" :disabled="auth.loading">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            :disabled="auth.loading"
+          >
             {{ auth.loading ? "Saving..." : "Save Settings" }}
           </button>
         </form>
@@ -124,7 +132,7 @@
   </div>
   <div v-else class="auth-page">
     <p class="muted">Sign in to view your account.</p>
-    <router-link class="btn-primary" to="/login">Go to login</router-link>
+    <router-link class="btn btn-primary" to="/login">Go to login</router-link>
   </div>
 </template>
 
@@ -199,6 +207,20 @@ const onLogout = async () => {
   border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.account-hero h1 {
+  margin: 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.muted {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .eyebrow {
@@ -206,11 +228,8 @@ const onLogout = async () => {
   letter-spacing: 0.08em;
   color: var(--text-secondary);
   font-weight: 700;
+  font-size: 0.85rem;
   margin-bottom: 0.35rem;
-}
-
-.muted {
-  color: var(--text-secondary);
 }
 
 .account-grid {
@@ -219,12 +238,32 @@ const onLogout = async () => {
   gap: 1.5rem;
 }
 
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 .card-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 0.75rem;
   margin-bottom: 1rem;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .form {
@@ -248,12 +287,33 @@ select {
   padding: 0.65rem 0.75rem;
   background: var(--bg-primary);
   color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
 }
 
 .checkbox {
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
 }
 
 .orders {
@@ -267,6 +327,12 @@ select {
   border-radius: 0.75rem;
   padding: 1rem;
   background: var(--bg-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order:hover {
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .order-main {
@@ -302,6 +368,9 @@ select {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .payment {
@@ -312,6 +381,12 @@ select {
   align-items: center;
   justify-content: space-between;
   background: var(--bg-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.payment:hover {
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .payment-brand {
@@ -324,7 +399,9 @@ select {
   background: var(--primary);
   color: white;
   font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .auth-page {
