@@ -1,10 +1,24 @@
 <template>
   <Transition name="slide">
-    <div v-if="visible" class="cart-sidebar">
+    <div
+      v-if="visible"
+      class="cart-sidebar"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Shopping cart"
+      tabindex="-1"
+      ref="dialogRef"
+      @keydown="onKeydown"
+    >
       <!-- Header -->
       <div class="cart-header">
-        <h2>Shopping Cart</h2>
-        <button class="cart-close" @click="closeCart" aria-label="Close cart">
+        <h2 id="cart-title">Shopping Cart</h2>
+        <button
+          class="cart-close"
+          @click="closeCart"
+          aria-label="Close cart"
+          ref="closeButtonRef"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -21,8 +35,12 @@
       </div>
 
       <!-- Items -->
-      <div class="cart-items">
-        <div v-if="cartItems.length === 0" class="cart-empty">
+      <div class="cart-items" role="region" aria-labelledby="cart-title">
+        <div
+          v-if="cartItems.length === 0"
+          class="cart-empty"
+          aria-live="polite"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="64"
@@ -44,7 +62,7 @@
           </router-link>
         </div>
 
-        <div v-else class="cart-item-list">
+        <div v-else class="cart-item-list" aria-live="polite">
           <div
             v-for="(item, index) in cartItems"
             :key="`${item.productId}-${item.size}-${item.color}`"
@@ -74,6 +92,8 @@
                 :value="item.quantity"
                 type="number"
                 min="1"
+                inputmode="numeric"
+                aria-label="Item quantity"
                 @change="
                   updateQuantity(item, parseInt($event.target.value) || 1)
                 "
@@ -154,7 +174,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref, watch, nextTick, onBeforeUnmount } from "vue";
 import { useCartStore, CartItem } from "@/stores/cartStore";
 import { useNotificationStore } from "@/stores/notificationStore";
 import { useCurrency } from "@/composables/useCurrency";
@@ -162,6 +182,9 @@ import { useCurrency } from "@/composables/useCurrency";
 const cartStore = useCartStore();
 const notificationStore = useNotificationStore();
 const { formatAmount } = useCurrency();
+
+const dialogRef = ref<HTMLElement | null>(null);
+const closeButtonRef = ref<HTMLButtonElement | null>(null);
 
 const formatCurrency = (amount: number) => formatAmount(amount);
 
@@ -175,6 +198,61 @@ const total = computed(() => cartStore.total);
 const closeCart = () => {
   notificationStore.closeCart();
 };
+
+const onKeydown = (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeCart();
+    return;
+  }
+
+  if (event.key === "Tab") {
+    const root = dialogRef.value;
+    if (!root) return;
+    const focusable = Array.from(
+      root.querySelectorAll<HTMLElement>(
+        'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((el) => !el.hasAttribute("disabled"));
+
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement as HTMLElement | null;
+
+    if (event.shiftKey && active === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+};
+
+const focusDialog = () => {
+  nextTick(() => {
+    if (closeButtonRef.value) {
+      closeButtonRef.value.focus();
+    } else if (dialogRef.value) {
+      dialogRef.value.focus();
+    }
+  });
+};
+
+watch(visible, (isOpen) => {
+  if (isOpen) {
+    focusDialog();
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+});
+
+onBeforeUnmount(() => {
+  document.body.style.overflow = "";
+});
 
 const removeItem = (item: CartItem) => {
   cartStore.removeItem(item.productId, item.size, item.color);

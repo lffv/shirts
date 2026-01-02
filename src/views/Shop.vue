@@ -238,7 +238,7 @@ const resetFilters = () => {
 }
 
 .container {
-  max-width: 7xl;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -251,12 +251,12 @@ const resetFilters = () => {
 .shop-header h1 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--secondary);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .shop-header p {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 1.125rem;
 }
 
@@ -273,17 +273,19 @@ const resetFilters = () => {
 }
 
 .filter-section {
-  background: white;
+  background: color-mix(in srgb, var(--bg-secondary) 85%, #000 15%);
   padding: 1.5rem;
-  border-radius: 0.75rem;
-  border: 1px solid #e5e7eb;
+  border-radius: 0.85rem;
+  border: 1px solid
+    color-mix(in srgb, var(--border-color) 60%, var(--hero-accent) 40%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.35);
 }
 
 .filter-section h3 {
   font-weight: 700;
   font-size: 0.95rem;
   margin-bottom: 1rem;
-  color: var(--secondary);
+  color: var(--text-primary);
 }
 
 .filter-group {
@@ -298,7 +300,7 @@ const resetFilters = () => {
   gap: 0.5rem;
   cursor: pointer;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .filter-label input {
@@ -313,7 +315,7 @@ const resetFilters = () => {
 .price-display {
   margin-top: 0.75rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--hero-accent-strong);
   text-align: center;
 }
 
@@ -340,23 +342,25 @@ const resetFilters = () => {
 }
 
 .color-button.active {
-  border-color: var(--secondary);
-  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--secondary);
+  border-color: var(--hero-accent);
+  box-shadow: 0 0 0 2px var(--bg-secondary), 0 0 0 4px var(--hero-accent);
 }
 
 .reset-filters {
   padding: 0.75rem;
-  background: #f3f4f6;
-  border: none;
-  border-radius: 0.5rem;
-  color: var(--secondary);
-  font-weight: 600;
+  background: color-mix(in srgb, var(--bg-secondary) 80%, #000 20%);
+  border: 1px solid var(--hero-accent);
+  border-radius: 0.6rem;
+  color: var(--text-primary);
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
 }
 
 .reset-filters:hover {
-  background: #e5e7eb;
+  background: var(--hero-accent);
+  color: #fff;
 }
 
 .shop-content {
@@ -370,28 +374,32 @@ const resetFilters = () => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: white;
-  border-radius: 0.75rem;
-  border: 1px solid #e5e7eb;
+  background: color-mix(in srgb, var(--bg-secondary) 85%, #000 15%);
+  border-radius: 0.85rem;
+  border: 1px solid
+    color-mix(in srgb, var(--border-color) 60%, var(--hero-accent) 40%);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.32);
 }
 
 .results-count {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 0.875rem;
 }
 
 .sort-select {
   padding: 0.5rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
+  border: 1px solid
+    color-mix(in srgb, var(--border-color) 60%, var(--hero-accent) 40%);
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  background: white;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .sort-select:focus {
-  outline: none;
-  border-color: var(--primary);
+  outline: 2px solid var(--hero-accent);
+  outline-offset: 2px;
 }
 
 .product-grid {
@@ -412,7 +420,7 @@ const resetFilters = () => {
   width: 40px;
   height: 40px;
   border: 4px solid #e5e7eb;
-  border-top: 4px solid var(--primary);
+  border-top: 4px solid var(--hero-accent);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -425,7 +433,7 @@ const resetFilters = () => {
 
 .spinner + p {
   margin-top: 1rem;
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .no-results {
@@ -435,11 +443,11 @@ const resetFilters = () => {
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .no-results svg {
-  color: #d1d5db;
+  color: color-mix(in srgb, var(--hero-accent) 20%, #d1d5db 80%);
   margin-bottom: 1rem;
 }
 
@@ -451,16 +459,18 @@ const resetFilters = () => {
 .reset-btn {
   margin-top: 1rem;
   padding: 0.5rem 1.5rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--bg-secondary) 70%, #000 30%);
+  color: var(--text-primary);
+  border: 1px solid var(--hero-accent);
+  border-radius: 0.6rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  transition: all 0.2s ease;
 }
 
 .reset-btn:hover {
-  background: #2563eb;
+  background: var(--hero-accent);
+  color: #fff;
 }
 
 @media (max-width: 768px) {

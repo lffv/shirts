@@ -46,7 +46,7 @@ export interface Order {
 export interface Settings {
   language: string;
   currency: string;
-  theme: "default" | "metal";
+  theme: "blackMetal" | "deathMetal" | "goreMetal" | "heavyMetal";
   marketing: boolean;
 }
 
@@ -130,7 +130,7 @@ const sampleOrders: Order[] = [
 const defaultSettings: Settings = {
   language: "en",
   currency: "USD",
-  theme: "default",
+  theme: "heavyMetal",
   marketing: true,
 };
 

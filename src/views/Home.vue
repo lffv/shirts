@@ -37,7 +37,12 @@
     <section class="featured">
       <div class="container">
         <h2>Featured Products</h2>
-        <div class="loading-spinner" v-if="loadingFeatured">
+        <div
+          class="loading-spinner"
+          v-if="loadingFeatured"
+          role="status"
+          aria-live="polite"
+        >
           <div class="spinner"></div>
         </div>
         <div v-else-if="featuredProducts.length" class="product-grid">

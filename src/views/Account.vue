@@ -20,15 +20,25 @@
         <form class="form" @submit.prevent="saveProfile">
           <label>
             <span>Name</span>
-            <input v-model="profileForm.name" type="text" />
+            <input
+              v-model="profileForm.name"
+              type="text"
+              autocomplete="name"
+              required
+            />
           </label>
           <label>
             <span>Email</span>
-            <input v-model="profileForm.email" type="email" />
+            <input
+              v-model="profileForm.email"
+              type="email"
+              autocomplete="email"
+              required
+            />
           </label>
           <label>
             <span>Phone</span>
-            <input v-model="profileForm.phone" type="tel" />
+            <input v-model="profileForm.phone" type="tel" autocomplete="tel" />
           </label>
           <button
             class="btn btn-primary"
@@ -92,7 +102,10 @@
         <form class="form" @submit.prevent="saveSettings">
           <label>
             <span>Language</span>
-            <select v-model="settingsForm.language">
+            <select
+              v-model="settingsForm.language"
+              aria-label="Language preference"
+            >
               <option value="en">English</option>
               <option value="es">Español</option>
               <option value="fr">Français</option>
@@ -101,7 +114,10 @@
           </label>
           <label>
             <span>Currency</span>
-            <select v-model="settingsForm.currency">
+            <select
+              v-model="settingsForm.currency"
+              aria-label="Currency preference"
+            >
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               <option value="GBP">GBP</option>
@@ -110,9 +126,11 @@
           </label>
           <label>
             <span>Theme</span>
-            <select v-model="settingsForm.theme">
-              <option value="default">Default</option>
-              <option value="metal">Metal</option>
+            <select v-model="settingsForm.theme" aria-label="Theme preference">
+              <option value="blackMetal">Black Metal</option>
+              <option value="deathMetal">Death Metal</option>
+              <option value="goreMetal">Gore Metal</option>
+              <option value="heavyMetal">Heavy Metal</option>
             </select>
           </label>
           <label class="checkbox">
@@ -152,7 +170,11 @@ const profileForm = reactive({
 const settingsForm = reactive({
   language: "en",
   currency: "USD",
-  theme: "default" as "default" | "metal",
+  theme: "heavyMetal" as
+    | "blackMetal"
+    | "deathMetal"
+    | "goreMetal"
+    | "heavyMetal",
   marketing: true,
 });
 

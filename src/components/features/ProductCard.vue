@@ -1,12 +1,29 @@
 <template>
   <div class="product-card">
-    <!-- Image -->
-    <router-link :to="`/products/${product.id}`" class="product-card-image">
-      <img :src="product.images[0]" :alt="product.name" />
-      <div v-if="product.originalPrice" class="product-card-badge">
+    <!-- Media -->
+    <div class="product-card-media">
+      <router-link
+        :to="`/products/${product.id}`"
+        class="product-card-image"
+        :aria-label="`View ${product.name}`"
+      >
+        <img :src="product.images[0]" :alt="product.name" />
+      </router-link>
+
+      <div
+        v-if="product.originalPrice"
+        class="product-card-badge"
+        aria-label="Discount"
+      >
         -{{ discount }}%
       </div>
-      <button class="product-card-wishlist" @click.prevent="toggleFavorite">
+
+      <button
+        class="product-card-wishlist"
+        @click.prevent="toggleFavorite"
+        :aria-pressed="isFavorite"
+        :aria-label="isFavorite ? 'Remove from favorites' : 'Add to favorites'"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -21,7 +38,7 @@
           ></path>
         </svg>
       </button>
-    </router-link>
+    </div>
 
     <!-- Content -->
     <div class="product-card-content">
@@ -51,7 +68,11 @@
       </div>
 
       <!-- Quick Add -->
-      <button class="product-card-add" @click="addToCart">
+      <button
+        class="product-card-add"
+        @click="addToCart"
+        :aria-label="`Add ${product.name} to cart`"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
@@ -168,6 +189,11 @@ const addToCart = () => {
   transform: translateY(-4px);
   border-color: var(--hero-accent);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55), 0 0 24px var(--hero-glow);
+}
+
+.product-card-media {
+  position: relative;
+  isolation: isolate;
 }
 
 .product-card-image {

@@ -19,7 +19,7 @@
     <CartSidebar />
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" role="main">
       <RouterView />
     </main>
 
@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 import { useNotificationStore } from "@/stores/notificationStore";
-import { useTheme } from "@/composables/useTheme";
+import { useTheme, type Theme } from "@/composables/useTheme";
 import Header from "@/components/layout/Header.vue";
 import Footer from "@/components/layout/Footer.vue";
 import CartSidebar from "@/components/features/CartSidebar.vue";
@@ -44,8 +44,8 @@ const notifications = computed(() => notificationStore.notifications);
 
 // Initialize theme from localStorage on app load
 onMounted(() => {
-  const savedTheme = localStorage.getItem("theme") || "blackMetal";
-  setTheme(savedTheme as "blackMetal" | "deathMetal");
+  const savedTheme = (localStorage.getItem("theme") || "blackMetal") as Theme;
+  setTheme(savedTheme);
 });
 </script>
 

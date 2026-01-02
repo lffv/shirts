@@ -18,7 +18,13 @@
       </router-link>
 
       <!-- Navigation -->
-      <nav class="header-nav" :class="{ open: isMobileNavOpen }">
+      <nav
+        class="header-nav"
+        :class="{ open: isMobileNavOpen }"
+        aria-label="Primary"
+        :aria-expanded="isMobileNavOpen"
+        id="primary-nav"
+      >
         <router-link to="/">{{ t("nav.home") }}</router-link>
         <router-link to="/shop">{{ t("nav.shop") }}</router-link>
         <router-link to="/about">{{ t("nav.about") }}</router-link>
@@ -30,7 +36,9 @@
         <button
           class="header-menu-toggle"
           @click="toggleNav"
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
+          :aria-expanded="isMobileNavOpen"
+          aria-controls="primary-nav"
         >
           <span v-if="isMobileNavOpen">✕</span>
           <span v-else>☰</span>
@@ -53,6 +61,7 @@
             type="text"
             :placeholder="t('search.placeholder')"
             class="header-search-input"
+            aria-label="Search products"
             @focus="showSearchResults = true"
             @blur="() => setTimeout(() => (showSearchResults = false), 200)"
             @input="handleSearch"
@@ -100,7 +109,11 @@
         <ThemeToggle />
 
         <!-- Wishlist -->
-        <button class="header-icon-button" title="Wishlist">
+        <button
+          class="header-icon-button"
+          title="Wishlist"
+          aria-label="Open wishlist"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -117,7 +130,11 @@
         </button>
 
         <!-- Cart -->
-        <button class="header-cart-button" @click="toggleCart">
+        <button
+          class="header-cart-button"
+          @click="toggleCart"
+          aria-label="Open cart"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
