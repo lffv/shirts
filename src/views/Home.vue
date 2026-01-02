@@ -420,4 +420,53 @@ h2 {
     flex-direction: column;
   }
 }
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .category-card {
+    height: 220px;
+  }
+
+  .newsletter {
+    padding: 2.5rem 0;
+  }
+
+  .newsletter-form {
+    gap: 0.75rem;
+  }
+}
 </style>

@@ -18,7 +18,7 @@
       </router-link>
 
       <!-- Navigation -->
-      <nav class="header-nav">
+      <nav class="header-nav" :class="{ open: isMobileNavOpen }">
         <router-link to="/">{{ t("nav.home") }}</router-link>
         <router-link to="/shop">{{ t("nav.shop") }}</router-link>
         <router-link to="/about">{{ t("nav.about") }}</router-link>
@@ -27,6 +27,15 @@
 
       <!-- Actions -->
       <div class="header-actions">
+        <button
+          class="header-menu-toggle"
+          @click="toggleNav"
+          aria-label="Toggle menu"
+        >
+          <span v-if="isMobileNavOpen">✕</span>
+          <span v-else>☰</span>
+        </button>
+
         <!-- Account -->
         <router-link
           v-if="auth.isAuthenticated"
@@ -150,6 +159,8 @@ const notificationStore = useNotificationStore();
 const { t } = useLanguage();
 const auth = useAuthStore();
 
+const isMobileNavOpen = ref(false);
+
 const cartItemCount = computed(() => cartStore.itemCount);
 
 const searchQuery = ref("");
@@ -168,6 +179,10 @@ const handleSearch = debounce(async (event: Event) => {
 const toggleCart = () => {
   notificationStore.toggleCart();
 };
+
+const toggleNav = () => {
+  isMobileNavOpen.value = !isMobileNavOpen.value;
+};
 </script>
 
 <style scoped>
@@ -184,11 +199,12 @@ const toggleCart = () => {
   max-width: 7xl;
   margin: 0 auto;
   padding: 0 1rem;
-  height: 70px;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .header-logo {
@@ -209,14 +225,16 @@ const toggleCart = () => {
 
 .header-nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.4rem;
   flex: 1;
+  flex-wrap: wrap;
 }
 
 .header-nav a {
   color: var(--text-primary);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.98rem;
   transition: color 0.2s ease;
   position: relative;
 }
@@ -239,7 +257,20 @@ const toggleCart = () => {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header-menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
 }
 
 .header-link {
@@ -247,6 +278,7 @@ const toggleCart = () => {
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 0.02em;
+  font-size: 0.95rem;
 }
 
 .header-link:hover {
@@ -262,6 +294,7 @@ const toggleCart = () => {
   padding: 0 1rem;
   gap: 0.5rem;
   transition: background-color 0.3s ease;
+  min-height: 44px;
 }
 
 .header-search-input {
@@ -269,7 +302,7 @@ const toggleCart = () => {
   background: transparent;
   padding: 0.5rem 0;
   font-size: 0.875rem;
-  width: 200px;
+  width: 180px;
   color: var(--text-primary);
   transition: color 0.3s ease;
 }
@@ -350,20 +383,97 @@ const toggleCart = () => {
 }
 
 @media (max-width: 768px) {
+  .header-container {
+    gap: 0.75rem;
+    min-height: 0;
+    padding: 0.75rem 1rem;
+  }
+
   .header-nav {
     display: none;
   }
 
-  .header-search {
-    display: none;
+  .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 0.75rem;
   }
 
-  .header-container {
-    gap: 1rem;
+  .header-link {
+    font-size: 0.9rem;
+  }
+
+  .header-search {
+    order: 3;
+    width: 100%;
+    display: flex;
   }
 
   .header-search-input {
-    width: 150px;
+    width: 100%;
+  }
+
+  .header-icon-button,
+  .header-cart-button {
+    padding: 0.25rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-container {
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .header-logo {
+    font-size: 1.1rem;
+    gap: 0.35rem;
+  }
+
+  .header-nav {
+    gap: 1.1rem;
+  }
+
+  .header-nav a {
+    font-size: 0.95rem;
+  }
+
+  .header-actions {
+    gap: 0.9rem;
+  }
+
+  .header-search-input {
+    width: 160px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .header-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.75rem 1rem 1rem;
+    z-index: 30;
+  }
+
+  .header-nav.open {
+    display: flex;
+  }
+
+  .header-container {
+    position: relative;
   }
 }
 </style>

@@ -334,6 +334,44 @@ select {
   gap: 1rem;
 }
 
+@media (max-width: 960px) {
+  .account-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .account-hero button {
+    width: 100%;
+  }
+
+  .account-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .account-page {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .order-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .payment {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .form {
+    gap: 0.75rem;
+  }
+}
+
 :global(html.metal-theme) .account-hero,
 :global(html.metal-theme) .card,
 :global(html.metal-theme) .order,
