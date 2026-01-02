@@ -10,6 +10,11 @@ import Privacy from "@/views/Privacy.vue";
 import Terms from "@/views/Terms.vue";
 import Faq from "@/views/Faq.vue";
 import Returns from "@/views/Returns.vue";
+import Login from "@/views/Login.vue";
+import Register from "@/views/Register.vue";
+import Account from "@/views/Account.vue";
+import { useAuthStore } from "@/stores/authStore";
+import pinia from "@/stores/pinia";
 
 const routes = [
   {
@@ -79,6 +84,24 @@ const routes = [
     meta: { title: "Returns & Refunds - TeeShop" },
   },
   {
+    path: "/login",
+    name: "Login",
+    component: Login,
+    meta: { title: "Login - TeeShop" },
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+    meta: { title: "Register - TeeShop" },
+  },
+  {
+    path: "/account",
+    name: "Account",
+    component: Account,
+    meta: { title: "Account - TeeShop", requiresAuth: true },
+  },
+  {
     path: "/:pathMatch(.*)*",
     redirect: "/",
   },
@@ -94,6 +117,16 @@ const router = createRouter({
 
 router.beforeEach((to) => {
   document.title = (to.meta.title as string) || "TeeShop";
+
+  if (to.meta.requiresAuth) {
+    const auth = useAuthStore(pinia);
+    if (!auth.isAuthenticated) {
+      return {
+        path: "/login",
+        query: { redirect: to.fullPath },
+      };
+    }
+  }
 });
 
 export default router;

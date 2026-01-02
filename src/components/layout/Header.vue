@@ -27,6 +27,17 @@
 
       <!-- Actions -->
       <div class="header-actions">
+        <!-- Account -->
+        <router-link
+          v-if="auth.isAuthenticated"
+          to="/account"
+          class="header-link"
+          >{{ auth.user?.name || auth.user?.email || "Account" }}</router-link
+        >
+        <router-link v-else to="/login" class="header-link"
+          >Sign in</router-link
+        >
+
         <!-- Search -->
         <div class="header-search">
           <input
@@ -132,10 +143,12 @@ import { debounce } from "@/utils/helpers";
 import ThemeToggle from "@/components/ui/ThemeToggle.vue";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher.vue";
 import CurrencySwitcher from "@/components/ui/CurrencySwitcher.vue";
+import { useAuthStore } from "@/stores/authStore";
 
 const cartStore = useCartStore();
 const notificationStore = useNotificationStore();
 const { t } = useLanguage();
+const auth = useAuthStore();
 
 const cartItemCount = computed(() => cartStore.itemCount);
 
@@ -227,6 +240,17 @@ const toggleCart = () => {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+
+.header-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.header-link:hover {
+  color: var(--primary);
 }
 
 .header-search {
