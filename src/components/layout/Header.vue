@@ -73,6 +73,9 @@
         <!-- Language Switcher -->
         <LanguageSwitcher />
 
+        <!-- Currency Switcher -->
+        <CurrencySwitcher />
+
         <!-- Theme Toggle -->
         <ThemeToggle />
 
@@ -128,6 +131,7 @@ import { searchProductsAutocomplete } from "@/services/mockApi";
 import { debounce } from "@/utils/helpers";
 import ThemeToggle from "@/components/ui/ThemeToggle.vue";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher.vue";
+import CurrencySwitcher from "@/components/ui/CurrencySwitcher.vue";
 
 const cartStore = useCartStore();
 const notificationStore = useNotificationStore();

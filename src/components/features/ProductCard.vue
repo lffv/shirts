@@ -79,7 +79,8 @@ import { Product } from "@/data/products";
 import { useCartStore } from "@/stores/cartStore";
 import { useNotificationStore } from "@/stores/notificationStore";
 import { useWishlist } from "@/composables/useComposables";
-import { formatCurrency, calculateDiscount } from "@/utils/helpers";
+import { useCurrency } from "@/composables/useCurrency";
+import { calculateDiscount } from "@/utils/helpers";
 
 interface Props {
   product: Product;
@@ -90,6 +91,9 @@ const props = defineProps<Props>();
 const cartStore = useCartStore();
 const notificationStore = useNotificationStore();
 const { isFavorite, toggleFavorite } = useWishlist();
+const { formatAmount } = useCurrency();
+
+const formatCurrency = (amount: number) => formatAmount(amount);
 
 const discount = computed(() => {
   if (!props.product.originalPrice) return 0;

@@ -157,10 +157,13 @@
 import { computed } from "vue";
 import { useCartStore, CartItem } from "@/stores/cartStore";
 import { useNotificationStore } from "@/stores/notificationStore";
-import { formatCurrency } from "@/utils/helpers";
+import { useCurrency } from "@/composables/useCurrency";
 
 const cartStore = useCartStore();
 const notificationStore = useNotificationStore();
+const { formatAmount } = useCurrency();
+
+const formatCurrency = (amount: number) => formatAmount(amount);
 
 const visible = computed(() => notificationStore.showCart);
 const cartItems = computed(() => cartStore.items);

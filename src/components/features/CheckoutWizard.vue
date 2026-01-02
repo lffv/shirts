@@ -282,10 +282,14 @@
 import { ref, reactive, computed } from "vue";
 import { useCartStore } from "@/stores/cartStore";
 import { useNotificationStore } from "@/stores/notificationStore";
-import { validateEmail, validatePhone, formatCurrency } from "@/utils/helpers";
+import { useCurrency } from "@/composables/useCurrency";
+import { validateEmail, validatePhone } from "@/utils/helpers";
 
 const cartStore = useCartStore();
 const notificationStore = useNotificationStore();
+const { formatAmount } = useCurrency();
+
+const formatCurrency = (amount: number) => formatAmount(amount);
 
 const emit = defineEmits<{
   orderSubmitted: [orderNumber: string];

@@ -102,11 +102,14 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useCartStore } from "@/stores/cartStore";
-import { formatCurrency } from "@/utils/helpers";
+import { useCurrency } from "@/composables/useCurrency";
 import CheckoutWizard from "@/components/features/CheckoutWizard.vue";
 
 const router = useRouter();
 const cartStore = useCartStore();
+const { formatAmount } = useCurrency();
+
+const formatCurrency = (amount: number) => formatAmount(amount);
 
 const orderSubmitted = ref(false);
 const orderNumber = ref("");
