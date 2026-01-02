@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "shop": "Boutique",
+    "about": "À Propos",
+    "contact": "Contact"
+  },
+  "search": {
+    "placeholder": "Rechercher des produits..."
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "tax": "Impôt",
+    "total": "Total",
+    "freeShipping": "Livraison gratuite pour les commandes de plus de 100 $",
+    "checkout": "Passer la Commande",
+    "remove": "Supprimer"
+  },
+  "product": {
+    "price": "Prix",
+    "originalPrice": "Prix Original",
+    "inStock": "En Stock",
+    "outOfStock": "Rupture de Stock",
+    "lowStock": "Stock Limité",
+    "color": "Couleur",
+    "size": "Taille",
+    "quantity": "Quantité",
+    "addToCart": "Ajouter au Panier",
+    "addedToCart": "Ajouté au panier!",
+    "addToWishlist": "Ajouter à la Liste de Souhaits",
+    "relatedProducts": "Produits Associés",
+    "description": "Description",
+    "shipping": "Livraison",
+    "returns": "Retours"
+  },
+  "home": {
+    "hero": {
+      "title": "T-shirts Premium de Haute Qualité",
+      "subtitle": "Découvrez notre collection unique de t-shirts avec style et confort",
+      "cta": "Acheter Maintenant"
+    },
+    "featured": "Produits en Vedette",
+    "categories": "Acheter par Catégorie",
+    "men": "Hommes",
+    "women": "Femmes",
+    "unisex": "Unisexe",
+    "limited": "Édition Limitée",
+    "features": {
+      "title": "Pourquoi Nous Choisir",
+      "shipping": "Livraison Gratuite",
+      "shippingDesc": "Pour les commandes de plus de 100 $",
+      "secure": "Paiement Sécurisé",
+      "secureDesc": "Vos transactions sont protégées",
+      "returns": "Retours Faciles",
+      "returnsDesc": "Garantie de retour de 30 jours",
+      "quality": "Qualité Premium",
+      "qualityDesc": "Matériaux de haute qualité"
+    },
+    "newsletter": {
+      "title": "S'abonner à Notre Bulletin",
+      "description": "Recevez des offres spéciales et des mises à jour exclusives",
+      "placeholder": "Votre e-mail",
+      "subscribe": "S'abonner"
+    }
+  },
+  "shop": {
+    "title": "Notre Boutique",
+    "filters": "Filtres",
+    "category": "Catégorie",
+    "price": "Prix",
+    "size": "Taille",
+    "color": "Couleur",
+    "sorting": "Trier Par",
+    "newest": "Plus Récents",
+    "priceLowHigh": "Prix: Croissant",
+    "priceHighLow": "Prix: Décroissant",
+    "popular": "Plus Populaire",
+    "results": "résultats trouvés",
+    "noResults": "Aucun produit trouvé",
+    "resetFilters": "Réinitialiser les Filtres"
+  },
+  "checkout": {
+    "title": "Passer la Commande",
+    "step": "Étape",
+    "of": "de",
+    "contact": "Informations de Contact",
+    "shipping": "Adresse de Livraison",
+    "method": "Méthode de Livraison",
+    "payment": "Paiement",
+    "review": "Examen",
+    "next": "Suivant",
+    "back": "Retour",
+    "submit": "Confirmer la Commande",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "address": "Adresse",
+    "city": "Ville",
+    "state": "État",
+    "zipCode": "Code Postal",
+    "country": "Pays",
+    "standard": "Standard",
+    "express": "Express",
+    "overnight": "Nuit",
+    "creditCard": "Carte de Crédit",
+    "paypal": "PayPal",
+    "applePay": "Apple Pay",
+    "orderNumber": "Numéro de Commande",
+    "confirmation": "Confirmation de Commande",
+    "estimatedDelivery": "Livraison Estimée",
+    "days": "jours"
+  },
+  "pages": {
+    "about": "À Propos",
+    "contact": "Contact",
+    "shipping": "Livraison",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions Générales",
+    "faq": "FAQ",
+    "returns": "Retours"
+  },
+  "footer": {
+    "about": "À Propos de TeeShop",
+    "description": "T-shirts de haute qualité avec style et confort. Explorez notre collection de designs uniques.",
+    "quickLinks": "Liens Rapides",
+    "customerService": "Service Client",
+    "newsletter": "Bulletin",
+    "subscribe": "S'abonner",
+    "subscribeDesc": "Abonnez-vous pour recevoir des offres spéciales et des mises à jour!",
+    "email": "Votre e-mail",
+    "copyright": "Tous droits réservés",
+    "acceptedPayments": "Paiements Acceptés"
+  },
+  "notifications": {
+    "success": "Succès!",
+    "error": "Erreur",
+    "warning": "Avertissement",
+    "info": "Information"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "shop": "Tienda",
+    "about": "Acerca de",
+    "contact": "Contacto"
+  },
+  "search": {
+    "placeholder": "Buscar productos..."
+  },
+  "cart": {
+    "title": "Carrito",
+    "empty": "Tu carrito está vacío",
+    "subtotal": "Subtotal",
+    "shipping": "Envío",
+    "tax": "Impuesto",
+    "total": "Total",
+    "freeShipping": "Envío gratis en pedidos superiores a $100",
+    "checkout": "Ir al Checkout",
+    "remove": "Eliminar"
+  },
+  "product": {
+    "price": "Precio",
+    "originalPrice": "Precio Original",
+    "inStock": "En Stock",
+    "outOfStock": "Agotado",
+    "lowStock": "Stock Limitado",
+    "color": "Color",
+    "size": "Talla",
+    "quantity": "Cantidad",
+    "addToCart": "Agregar al Carrito",
+    "addedToCart": "¡Agregado al carrito!",
+    "addToWishlist": "Agregar a la Lista de Deseos",
+    "relatedProducts": "Productos Relacionados",
+    "description": "Descripción",
+    "shipping": "Envío",
+    "returns": "Devoluciones"
+  },
+  "home": {
+    "hero": {
+      "title": "Camisetas Premium de Alta Calidad",
+      "subtitle": "Descubre nuestra colección única de camisetas con estilo y comodidad",
+      "cta": "Comprar Ahora"
+    },
+    "featured": "Productos Destacados",
+    "categories": "Comprar por Categoría",
+    "men": "Hombres",
+    "women": "Mujeres",
+    "unisex": "Unisex",
+    "limited": "Edición Limitada",
+    "features": {
+      "title": "Por Qué Elegirnos",
+      "shipping": "Envío Gratis",
+      "shippingDesc": "En pedidos superiores a $100",
+      "secure": "Pago Seguro",
+      "secureDesc": "Tus transacciones están protegidas",
+      "returns": "Devoluciones Fáciles",
+      "returnsDesc": "Garantía de devolución de 30 días",
+      "quality": "Calidad Premium",
+      "qualityDesc": "Materiales de alta calidad"
+    },
+    "newsletter": {
+      "title": "Suscríbete a Nuestro Boletín",
+      "description": "Recibe ofertas especiales y actualizaciones exclusivas",
+      "placeholder": "Tu correo",
+      "subscribe": "Suscribirse"
+    }
+  },
+  "shop": {
+    "title": "Nuestra Tienda",
+    "filters": "Filtros",
+    "category": "Categoría",
+    "price": "Precio",
+    "size": "Talla",
+    "color": "Color",
+    "sorting": "Ordenar Por",
+    "newest": "Más Recientes",
+    "priceLowHigh": "Precio: Menor a Mayor",
+    "priceHighLow": "Precio: Mayor a Menor",
+    "popular": "Más Popular",
+    "results": "resultados encontrados",
+    "noResults": "No se encontraron productos",
+    "resetFilters": "Restablecer Filtros"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "step": "Paso",
+    "of": "de",
+    "contact": "Información de Contacto",
+    "shipping": "Dirección de Envío",
+    "method": "Método de Envío",
+    "payment": "Pago",
+    "review": "Revisión",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "submit": "Confirmar Pedido",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "address": "Dirección",
+    "city": "Ciudad",
+    "state": "Estado",
+    "zipCode": "Código Postal",
+    "country": "País",
+    "standard": "Estándar",
+    "express": "Expresar",
+    "overnight": "Noche",
+    "creditCard": "Tarjeta de Crédito",
+    "paypal": "PayPal",
+    "applePay": "Apple Pay",
+    "orderNumber": "Número de Pedido",
+    "confirmation": "Confirmación del Pedido",
+    "estimatedDelivery": "Entrega Estimada",
+    "days": "días"
+  },
+  "pages": {
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "shipping": "Envío",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos y Condiciones",
+    "faq": "Preguntas Frecuentes",
+    "returns": "Devoluciones"
+  },
+  "footer": {
+    "about": "Acerca de TeeShop",
+    "description": "Camisetas de alta calidad con estilo y comodidad. Explora nuestra colección de diseños únicos.",
+    "quickLinks": "Enlaces Rápidos",
+    "customerService": "Servicio al Cliente",
+    "newsletter": "Boletín",
+    "subscribe": "Suscribirse",
+    "subscribeDesc": "¡Suscríbete para obtener ofertas especiales y actualizaciones!",
+    "email": "Tu correo",
+    "copyright": "Todos los derechos reservados",
+    "acceptedPayments": "Pagos Aceptados"
+  },
+  "notifications": {
+    "success": "¡Éxito!",
+    "error": "Error",
+    "warning": "Advertencia",
+    "info": "Información"
+  }
+}
