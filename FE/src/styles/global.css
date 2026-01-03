@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base fallbacks before theme selection */
+  --primary: #a41c35;
+  --secondary: #0d0d10;
+  --bg-primary: #050505;
+  --bg-secondary: #0f0f14;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --border-color: #1f2937;
+  --metal-accent: #9ca3af;
+  --hero-accent: #9f1239;
+  --hero-accent-strong: #f43f5e;
+  --hero-glow: rgba(159, 18, 57, 0.35);
+  --hero-bg-top: #07070a;
+  --hero-bg-mid: #0b0b0f;
+  --hero-bg-bottom: #050505;
+}
+
+/* Black Metal Theme — icy, monochrome */
+html.black-metal-theme {
+  --primary: #e5e7eb;
+  --secondary: #0b0c0f;
+  --bg-primary: #030305;
+  --bg-secondary: #0a0b0f;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --border-color: #1f2937;
+  --metal-accent: #9ca3af;
+  --hero-accent: #d1d5db;
+  --hero-accent-strong: #e5e7eb;
+  --hero-glow: rgba(255, 255, 255, 0.22);
+  --hero-bg-top: #06070a;
+  --hero-bg-mid: #0a0b10;
+  --hero-bg-bottom: #020203;
+}
+
+/* Death Metal Theme — blood & bone */
+html.death-metal-theme {
+  --primary: #b91c1c;
+  --secondary: #120000;
+  --bg-primary: #080101;
+  --bg-secondary: #0f0404;
+  --text-primary: #f5f5f4;
+  --text-secondary: #d6d3d1;
+  --border-color: #261010;
+  --metal-accent: #9f1239;
+  --hero-accent: #9f1239;
+  --hero-accent-strong: #f43f5e;
+  --hero-glow: rgba(244, 63, 94, 0.35);
+  --hero-bg-top: #0f0003;
+  --hero-bg-mid: #120104;
+  --hero-bg-bottom: #060002;
+}
+
+/* Gore Metal Theme — visceral & gritty */
+html.gore-metal-theme {
+  --primary: #6b0f14; /* clotted crimson / deep burgundy */
+  --secondary: #1a120f; /* dirt + dried gore */
+  --bg-primary: #0b0a0a; /* inky black */
+  --bg-secondary: #11100e; /* stained paper dark */
+  --text-primary: #e5e2db; /* cadaverous gray-white */
+  --text-secondary: #c0b8a8; /* faded clinical notes */
+  --border-color: #2d241f; /* rusted instrument edge */
+  --metal-accent: #7f8a79; /* stainless/moss steel */
+  --hero-accent: #7a8f2a; /* putrid yellow-green */
+  --hero-accent-strong: #b0c93a; /* infection highlight */
+  --hero-glow: rgba(122, 143, 42, 0.22);
+  --hero-bg-top: #120f11; /* smudged film grain top */
+  --hero-bg-mid: #0f0d0e; /* mid-tone bruise */
+  --hero-bg-bottom: #0b0a0a; /* inky base */
+}
+
+/* Heavy Metal Theme — bright chrome & neon */
+html.heavy-metal-theme {
+  --primary: #2563eb;
+  --secondary: #e8edf6;
+  --bg-primary: #f5f7fb;
+  --bg-secondary: #e8edf6;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --border-color: #cbd5e1;
+  --metal-accent: #0ea5e9;
+  --hero-accent: #2563eb;
+  --hero-accent-strong: #1d4ed8;
+  --hero-glow: rgba(37, 99, 235, 0.18);
+  --hero-bg-top: #eef2ff;
+  --hero-bg-mid: #e0e7ff;
+  --hero-bg-bottom: #f5f7fb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Improved focus for theme contexts */
+.header a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.product-card a:focus-visible,
+.product-card button:focus-visible,
+.cart-sidebar button:focus-visible,
+.cart-sidebar a:focus-visible {
+  outline: 2px solid var(--hero-accent);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--border-color);
+}
+
+:global(html.gore-metal-theme) .btn-primary {
+  background-color: var(--hero-accent);
+  color: #0b0a0a;
+  border: 1px solid var(--hero-accent-strong);
+}
+
+:global(html.gore-metal-theme) .btn-primary:hover:not(:disabled) {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+:global(html.gore-metal-theme) .btn-secondary {
+  background-color: #161513;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+:global(html.gore-metal-theme) .btn-secondary:hover:not(:disabled) {
+  background-color: var(--border-color);
+}
+
+.card {
+  @apply rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  @apply transition-opacity duration-300;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  @apply opacity-0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  @apply transition-transform duration-300;
+}
+
+.slide-enter-from {
+  @apply translate-x-full;
+}
+
+.slide-leave-to {
+  @apply translate-x-full;
+}

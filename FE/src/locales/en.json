@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "search": {
+    "placeholder": "Search products..."
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "total": "Total",
+    "freeShipping": "Free shipping on orders over $100",
+    "checkout": "Checkout",
+    "remove": "Remove"
+  },
+  "product": {
+    "price": "Price",
+    "originalPrice": "Original Price",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "lowStock": "Low Stock",
+    "color": "Color",
+    "size": "Size",
+    "quantity": "Quantity",
+    "addToCart": "Add to Cart",
+    "addedToCart": "Added to cart!",
+    "addToWishlist": "Add to Wishlist",
+    "relatedProducts": "Related Products",
+    "description": "Description",
+    "shipping": "Shipping",
+    "returns": "Returns"
+  },
+  "home": {
+    "hero": {
+      "title": "Premium High-Quality T-Shirts",
+      "subtitle": "Discover our unique collection of t-shirts with style and comfort",
+      "cta": "Shop Now"
+    },
+    "featured": "Featured Products",
+    "categories": "Shop by Category",
+    "men": "Men",
+    "women": "Women",
+    "unisex": "Unisex",
+    "limited": "Limited Edition",
+    "features": {
+      "title": "Why Choose Us",
+      "shipping": "Free Shipping",
+      "shippingDesc": "On orders over $100",
+      "secure": "Secure Payment",
+      "secureDesc": "Your transactions are protected",
+      "returns": "Easy Returns",
+      "returnsDesc": "30-day return guarantee",
+      "quality": "Premium Quality",
+      "qualityDesc": "High-quality materials"
+    },
+    "newsletter": {
+      "title": "Subscribe to Our Newsletter",
+      "description": "Get special offers and exclusive updates",
+      "placeholder": "Your email",
+      "subscribe": "Subscribe"
+    }
+  },
+  "shop": {
+    "title": "Our Shop",
+    "filters": "Filters",
+    "category": "Category",
+    "price": "Price",
+    "size": "Size",
+    "color": "Color",
+    "sorting": "Sort By",
+    "newest": "Newest",
+    "priceLowHigh": "Price: Low to High",
+    "priceHighLow": "Price: High to Low",
+    "popular": "Most Popular",
+    "results": "results found",
+    "noResults": "No products found",
+    "resetFilters": "Reset Filters"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "step": "Step",
+    "of": "of",
+    "contact": "Contact Information",
+    "shipping": "Shipping Address",
+    "method": "Shipping Method",
+    "payment": "Payment",
+    "review": "Review",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Confirm Order",
+    "email": "Email",
+    "phone": "Phone",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "address": "Address",
+    "city": "City",
+    "state": "State",
+    "zipCode": "Zip Code",
+    "country": "Country",
+    "standard": "Standard",
+    "express": "Express",
+    "overnight": "Overnight",
+    "creditCard": "Credit Card",
+    "paypal": "PayPal",
+    "applePay": "Apple Pay",
+    "orderNumber": "Order Number",
+    "confirmation": "Order Confirmation",
+    "estimatedDelivery": "Estimated Delivery",
+    "days": "days"
+  },
+  "pages": {
+    "about": "About",
+    "contact": "Contact",
+    "shipping": "Shipping",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "faq": "FAQ",
+    "returns": "Returns"
+  },
+  "footer": {
+    "about": "About TeeShop",
+    "description": "Premium quality t-shirts with style and comfort. Explore our collection of unique designs.",
+    "quickLinks": "Quick Links",
+    "customerService": "Customer Service",
+    "newsletter": "Newsletter",
+    "subscribe": "Subscribe",
+    "subscribeDesc": "Subscribe to get special offers and updates!",
+    "email": "Your email",
+    "copyright": "All rights reserved",
+    "acceptedPayments": "Accepted Payments"
+  },
+  "notifications": {
+    "success": "Success!",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info"
+  }
+}
