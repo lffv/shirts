@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    command: pnpm run dev
+    env_file: .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+      - mailhog
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+  meilisearch:
+    image: getmeili/meilisearch:v1.7
+    ports:
+      - "7700:7700"
